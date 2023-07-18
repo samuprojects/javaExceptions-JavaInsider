@@ -1,7 +1,5 @@
 package account;
 
-import app.InsufficientFundsException;
-
 public class Account3 {
 
     private final String number;

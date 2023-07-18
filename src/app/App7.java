@@ -1,6 +1,7 @@
 package app;
 
 import account.Account3;
+import account.InsufficientFundsException;
 
 @SuppressWarnings("ALL")
 public class App7 {

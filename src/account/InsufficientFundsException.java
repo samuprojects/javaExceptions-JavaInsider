@@ -1,4 +1,4 @@
-package app;
+package account;
 
 @SuppressWarnings("ALL")
 public class InsufficientFundsException extends Exception {

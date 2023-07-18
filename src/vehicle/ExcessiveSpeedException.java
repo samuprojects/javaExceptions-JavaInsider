@@ -1,4 +1,4 @@
-package app;
+package vehicle;
 
 public class ExcessiveSpeedException extends RuntimeException {
 
