@@ -13,13 +13,16 @@ public class Account3 {
         this.balance += amount;
     }
 
-    public void withdraw(double amount) throws Exception { // o throws vai na assinatura do método e indica que pode ser lançado uma exceção
-        if (amount < 0){ // quem faz a chamada tem que ter ciência disso e escolher o que fazer
-            // para lançar a exceção usamos o throw no singular e encerra o método
+    public void withdraw(double amount) throws Exception {
+        if (amount < 0){
+            // em resumo a RuntimeException não trata pois seria um bug ou algum erro não esperado
+            // nesse caso um saque negativo é coisa fora do comum de acontecer e precisa ser corrigino na programação
             throw new Exception("Amount cannot be negative");
         }
 
         if(balance - amount < 0) {
+            // e a CheckedException sabe que pode ocorrer e é tratada
+            // aqui é possível pois a pessoa pode ter equivocado quanto ao saldo e ter pedido mais no saque
             throw new Exception("Insufficient funds");
         }
 
