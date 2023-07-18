@@ -17,7 +17,7 @@ public class Account3 {
 
     public void withdraw(double amount) throws InsufficientFundsException {
         if (amount < 0){
-            throw new RuntimeException("Amount cannot be negative");
+            throw new IllegalArgumentException("Amount cannot be negative");
         }
 
         if(balance - amount < 0) {
