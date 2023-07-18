@@ -13,13 +13,14 @@ public class Account3 {
         this.balance += amount;
     }
 
-    public void withdraw(double amount) {
-        if (amount < 0){
-            throw new RuntimeException("Amount cannot be negative");
+    public void withdraw(double amount) throws Exception { // o throws vai na assinatura do método e indica que pode ser lançado uma exceção
+        if (amount < 0){ // quem faz a chamada tem que ter ciência disso e escolher o que fazer
+            // para lançar a exceção usamos o throw no singular e encerra o método
+            throw new Exception("Amount cannot be negative");
         }
 
         if(balance - amount < 0) {
-            throw new RuntimeException("Insufficient funds");
+            throw new Exception("Insufficient funds");
         }
 
         this.balance-= amount;
