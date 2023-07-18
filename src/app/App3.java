@@ -10,10 +10,14 @@ public class App3 {
         a.deposit(500);
         System.out.println(a);
 
-        a.withdraw(600); // com saque maior ou negativo um aviso de RuntimeException vai parar a aplicação com falha
-        System.out.println(a); // ou seja o erro não será ignorado e nesse caso quem chamou pode tratar o erro
+        a.withdraw(600);
+        System.out.println(a);
 
         System.out.println("Success!");
         }
-
+    // sobre a stacktrace é importante para rastrear o problema
+    // no caso desse código a primeira linha vai informar o erro
+    // e na sequencia a pilha de chamadas que ocorreu sendo necessário acompanhar debaixo para cima (está "empilhado")
+    // uma curiosidade é que em relação ao sistema operacional quando é finalizado com erro informa qualquer código
+    // diferente de zero.
     }
