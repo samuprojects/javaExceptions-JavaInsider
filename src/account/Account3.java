@@ -1,5 +1,7 @@
 package account;
 
+import app.InsufficientFundsException;
+
 public class Account3 {
 
     private final String number;
@@ -13,17 +15,13 @@ public class Account3 {
         this.balance += amount;
     }
 
-    public void withdraw(double amount) throws Exception {
+    public void withdraw(double amount) throws InsufficientFundsException {
         if (amount < 0){
-            // em resumo a RuntimeException não trata pois seria um bug ou algum erro não esperado
-            // nesse caso um saque negativo é coisa fora do comum de acontecer e precisa ser corrigino na programação
             throw new RuntimeException("Amount cannot be negative");
         }
 
         if(balance - amount < 0) {
-            // e a CheckedException sabe que pode ocorrer e é tratada
-            // aqui é possível pois a pessoa pode ter equivocado quanto ao saldo e ter pedido mais no saque
-            throw new Exception("Insufficient funds");
+            throw new InsufficientFundsException(balance);
         }
 
         this.balance-= amount;
