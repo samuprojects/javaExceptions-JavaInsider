@@ -17,7 +17,7 @@ public class Account3 {
         if (amount < 0){
             // em resumo a RuntimeException não trata pois seria um bug ou algum erro não esperado
             // nesse caso um saque negativo é coisa fora do comum de acontecer e precisa ser corrigino na programação
-            throw new Exception("Amount cannot be negative");
+            throw new RuntimeException("Amount cannot be negative");
         }
 
         if(balance - amount < 0) {
