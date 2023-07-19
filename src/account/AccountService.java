@@ -9,10 +9,15 @@ public class AccountService {
 
         try {
             account.withdraw(amount);
-        } catch (InsufficientFundsException e) { // capturamos a exceção original e ...
-            throw new ServiceException(e.getMessage()); // lançamos na nova reaproveitando da antiga apenas a mensagem
-        } // na stacktrace da aplicação vai exibir apenas "como um serviço de exceção" passando o problema
-        // é como esconder algumas coisas internas lembrar do drywall
+        } catch (InsufficientFundsException e) {
+            throw new ServiceException("Error during withdraw", e);
+        }
+        // diferente do passo anterior que era apenas esconder as coisas do que está acontecendo internamente
+        // podemos fazer o inverso e detalhar o histórico dos problemas ao aninhar a exceção original com
+        // a causa dentro da exceção que estamos criando conforme feito acima, esse é o cenário mais comum no dia a dia
+        // outro ponto sinalizado é nunca deixar o catch (tratamento da exceção) vazio, pelo menos a stacktrace deve ser impressa
+        // para caso aconteça alguma coisa poder verificar em log a ocorrência.
+
 
     }
 
